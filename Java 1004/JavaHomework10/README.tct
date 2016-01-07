@@ -1,0 +1,25 @@
+Problem 4 (Programming) Big Java P9.8 -
+
+P9.8 Implement a superclass Person. Make two classes, Student and Instructor, that inherit from Person. A person has a name and a year of birth. A student has a major, and an instructor has a salary. Write the class declarations, the constructors, and the methods toString for all classes. Supply a test program (PersonTester) that tests these classes and methods.
+
+When you are done you should have 4 files:
+
+Person.java
+
+Student.java
+
+Instructor.java
+
+PersonTester.java
+
+ 
+
+Problem 5 (Programming) - 
+
+Create a class called Person2 that is identical to the Person class in the previous problem except have it implement the Comparable interface and implement the required methods from the Comparable interface.  Your compareTo method should compare by birth year.
+
+Create a class called Student2 that inherits from Person2.  It should otherwise be the same as the Student class from the previous example.
+
+Write a tester class (Person2Tester) that populates an ArrayList of Student2 objects and then sorts them by year of birth using the Collections sort method.
+
+

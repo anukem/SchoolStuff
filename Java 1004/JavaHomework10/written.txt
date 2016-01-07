@@ -1,0 +1,103 @@
+*************************
+John Anukem
+jea2161
+December 3rd, 2015
+Assignment 10
+*************************
+
+
+1.
+a. Assume there are one million books in your campus library. 
+Approximate (to the nearest order of magnitude) 	
+how many bytes of data there are if all these books were stored online and 
+accessible across a computer network.
+Assuming that each character could be stored in one byte, it would take 
+approximately 1 terabyte of information
+b. How long does it take to transfer the entire collection of books if the 
+data rate of the transmission medium is 10 Mbps, the speed of the original 
+Ethernet? How long does it take if we have a line with a speed of 1 Gbps? (
+This represents the time needed to download your entire campus library.)
+
+Assumption: If 1,700 books make up 10 x 10^9 bits, then 1 million books would be around 5882352941176.471 bits or 735294117647.0588 bytes. 
+If it takes appoximately .8 seconds to transmit 10 million bits, it would take around 470588.23529411765 seconds with a 10Mbps Ethernet, and 4705.8823529411765 seconds with a 1Gbps line.
+
+Problem 2: Big Java R9.1 -
+
+R9.1  Identify the superclass and subclass in each of the following pairs of classes.
+
+SuperClass, Subclass
+
+a. Employee, Manager
+
+b. Student, GraduateStudent
+
+c. Person, Student
+
+d. Employee, Professor
+
+e. BankAccount, CheckingAccount
+
+f. Vehicle, Car
+
+g Vehicle, Minivan
+
+h. Car, Minivan
+
+i. Vehicle, Truck
+
+Problem 3: Big Java R9.6 -
+
+R9.6  Suppose the class Sub extends the class Sandwich. Which of the following assignments are legal?
+
+   Sandwich x = new Sandwich();
+
+   Sub y = new Sub();
+
+a. x = y;
+
+This assignment is legal. 
+
+b. y = x;
+
+This is not lgeal, because the object Sub inherited from Sandwich and thus can't be converted to a sandwich. 
+
+c. y = new Sandwich();	
+
+This is also not legal for the same reason as before, the only difference is using the keyword new to construct an entirely new Object Sandwich rather than referencing the already made Sandwich x. 
+d. x = new Sub();
+
+This is perfectly legal because x is already a Sandwich and since Sub inherits from Sandwich, it is possible to make a newly constructed Sub from a Sandwich. 
+ 
+Problem 4 (Programming) Big Java P9.8 -
+
+P9.8 Implement a superclass Person. Make two classes, Student and Instructor, 
+that inherit from Person. A person has a name and a year of birth. A student 
+has a major, and an instructor has a salary. Write the class declarations, 
+the constructors, and the methods toString for all classes. Supply a test 
+program (PersonTester) that tests these classes and methods.
+
+When you are done you should have 4 files:
+
+Person.java
+
+Student.java
+
+Instructor.java
+
+PersonTester.java
+
+ 
+
+Problem 5 (Programming) - 
+
+Create a class called Person2 that is identical to the Person class in the 
+previous problem except have it implement the Comparable interface and 
+implement the required methods from the Comparable interface.  Your compareTo 
+method should compare by birth year.
+
+Create a class called Student2 that inherits from Person2.  It should 
+otherwise be the same as the Student class from the previous example.
+
+Write a tester class (Person2Tester) that populates an ArrayList of Student2 
+objects and then sorts them by year of birth using the Collections sort 
+method.
