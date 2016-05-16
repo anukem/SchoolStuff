@@ -1,0 +1,6 @@
+Hey this line is perfectly fine. 
+This line should check that (punctuation) doesn't affect the checker.
+This line should check the three cases of a misspelled word with the word hoel.
+
+The line before should make sure that blank spaces are accounted for. 
+This line is just cause lol.

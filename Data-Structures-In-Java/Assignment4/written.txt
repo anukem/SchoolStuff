@@ -1,0 +1,297 @@
+// John Anukem
+// jea2161
+// Due April 1st
+
+
+Question 1
+	
+	Seperate Chaining Hashtable
+		  {}
+		  {4371}	
+		  {}
+		  {1323->6173}
+		  {4344}
+		  {}
+		  {}
+		  {}
+		  {}
+		  {4199->9679->1989}
+
+	Linear Probing HashTable
+		{9679}
+		{4371}
+		{1989}
+		{1323}
+		{6173}
+		{4344}
+		{}
+		{}
+		{}
+		{4199}
+	Quadratic Probing HashTable
+		{9679}
+		{4371}
+		{}
+		{1323}
+		{6173}
+		{4344}
+		{}
+		{}
+		{1989}
+		{4199}
+	HashTable with second hash function = 7 - (x mod 7)
+		{}
+		{4371}
+		{}
+		{1323}
+		{6173}
+		{9679}
+		{}
+		{4344}
+		{}
+		{4199}
+		1989 wouldn't be able to be inserted because the second hash function doesn't allow it to be probed at any spot. 
+
+Question 2
+	
+	Rehashing for Seperate Chaining 
+		0 {4199}
+		1 {4371}
+		2 {}
+		3 {}
+		4 {}
+		5 {}
+		6 {}
+		7 {}
+		8 {9679}
+		9 {}
+	   10 {}
+	   11 {}
+	   12 {1323->4344}
+	   13 {1989}
+	   14 {}
+	   15 {}
+	   16 {}
+	   17 {6173}
+	   18 {}
+	Rehashing for Linear Probing
+		0 {4199}
+		1 {4371}
+		2 {}
+		3 {}
+		4 {}
+		5 {}
+		6 {}
+		7 {}
+		8 {9679}
+		9 {}
+	   10 {}
+	   11 {}
+	   12 {1323}
+	   13 {4344}
+	   14 {1989}
+	   15 {}
+	   16 {}
+	   17 {6173}
+	   18 {}
+	Rehashing for Quadratic Probing
+		0 {4199}
+		1 {4371}
+		2 {}
+		3 {}
+		4 {}
+		5 {}
+		6 {}
+		7 {}
+		8 {9679}
+		9 {}
+	   10 {}
+	   11 {}
+	   12 {1323}
+	   13 {4344}
+	   14 {1989}
+	   15 {}
+	   16 {}
+	   17 {6173}
+	   18 {}
+	Rehashing with Second Hash Function = 7 - (x mod 7)
+		0 {4199}
+		1 {4371}
+		2 {}
+		3 {}
+		4 {}
+		5 {}
+		6 {}
+		7 {}
+		8 {9679}
+		9 {}
+	   10 {}
+	   11 {}
+	   12 {1323}
+	   13 {1989}
+	   14 {}
+	   15 {4344}
+	   16 {}
+	   17 {6173}
+	   18 {}
+
+Question 3
+
+	a.
+		1. 10
+
+		2.  10
+	       /  \
+         12    ()
+
+        3.  10					1
+	       /  \     ====>      / \
+         12    1			  12 10
+        
+        4. 1
+		  / \
+         12 10
+        /  \
+       14  ()
+
+       5.  1				1
+		  / \			   / \
+         12 10   =====>	  6	  10
+        /  \			 / \ 
+       14   6           14  12
+
+       6.   1                    1
+		  /   \                /   \
+         6     10    ======>  6     5   
+        / \   /  \           / \   / \
+       14 12 5   ()         14 12 10  ()
+
+       7. 	1     
+		  /   \        
+         6     5     
+        / \   /  \    
+       14 12 10   8  
+
+       8.   1     
+		  /   \        
+         6     5     
+        / \   /  \    
+       14 12 10   8 
+      / \
+     15  ()
+
+     	9.  1                      1						1
+		  /   \        			 /   \  				  /   \	
+         6     5                6     5                  3     5
+        / \   /  \   =====>    / \   / \     ======>    / \   / \   
+       14 12 10   8           3  12 10  8              6  12 10  8
+      / \                    / \                      / \
+     15  3                  15  14                   15 14
+
+     10.  1     				    1
+		/    \        			 /     \
+       3      5     		    3       5	
+      /  \  /   \   ====>     /  \     /  \
+     6    12   10    8       6    9   10   8
+    / \   / \              / \   / \
+   15 14 9  ()            15 14 12 ()
+
+   11. 		 1                     1
+		   /   \                 /    \
+         3      5               3       5
+        / \    /  \            /  \    /  \
+      6    9  10   8  ====>   6    7  10   8
+     / \   / \               / \   / \
+    15 14 12  7             15 14 12  9
+
+    12.      1     							 1							   1 
+		  /      \    		  	 		/         \					  /         \ 	
+        3         5     			    3		   5				 3           4   	
+      /  \       /  \   =====>		  /   \       /  \		    	/   \       /  \
+     6    7     10   8 				 6     7     4    8	=====>	   6     7     5    8 
+    / \   /\   / \ 					/ \   / \   / \               / \   / \   / \
+   15 14 12 9 4   ()			   15  14 12 9 10  ()	        15  14 12  9 10 ()
+
+   13.		 1 
+		/         \ 	
+       3           4   	
+      /   \       /  \
+    6     7      5    8 
+   / \   / \    / \
+  15 14 12  9 10  11
+
+  	14. 	 1 
+		/         \ 	
+       3           4   	
+      /   \       /  \
+    6     7      5    8 
+   / \   / \    / \   /\
+  15 14 12  9 10  11 13()
+
+   	15.      1     							 1									   1 
+		  /      \    		  	 		/          \						  /          \ 	
+        3         4     			    3		    4						 3            2   	
+      /  \       /  \   =====>		  /   \       /   \		    			/   \       /   \
+     6    7     5    8 				 6     7     5     2	  =====>	   6     7     5     4 
+    / \   /\   /\ 	 /\				/ \   / \   / \   / \          		  / \   / \   / \   / \
+   15 14 12 9 10 11	13 2		   15  14 12 9 10 11 13  8	        	 15  14 12 9 10 11 13  8  
+
+   b.
+
+   Using the array format, if the initial heap is 
+
+   [10,12,1,14,6,5,8,115,3,9,7,4,11,13,2]
+
+   Then after percolateDown(7), it becomes
+   [10,12,1,14,6,5,2,15,3,9,7,4,11,13,8]
+
+   percolateDown(6)
+   [10,12,1,14,6,4,2,15,3,9,7,5,11,13,8]
+
+   percolateDown(5)
+   [10,12,1,14,6,4,2,15,3,9,7,5,11,13,8]
+
+   percolateDown(4)
+   [10,12,1,3,6,4,2,15,14,9,7,5,11,13,8]
+
+   percolateDown(3)
+   [10,12,1,3,6,4,2,15,14,9,7,5,11,13,8]
+
+   percolateDown(2)
+   [10,3,1,12,6,4,2,15,14,9,7,5,11,13,8]
+
+   percolateDown(1)
+   [1,3,2,12,6,4,8,15,14,9,7,5,11,13,10]
+
+   After the last percolateDown(), the heap should be sorted. 
+
+   Question 4
+
+   If the initial heap is 
+   [1,3,2,6,7,5,4,15,14,12,9,10,11,13,8] 
+
+   Then after the first deleteMin(), the result is 
+
+   [8,3,2,6,7,5,4,15,14,12,9,10,11,13,()]
+   [2,3,8,6,7,5,4,15,14,12,9,10,11,13,()]
+   [2,3,4,6,7,5,8,15,14,12,9,10,11,13,()]
+
+   After the second deleteMin(), the result is
+   [13,3,4,6,7,5,8,15,14,12,9,10,11]
+   [3,13,4,6,7,5,8,15,14,12,9,10,11]
+   [3,6,4,13,7,5,8,15,14,12,9,10,11]
+
+   After the third deleteMin(), the result is 
+   [11,6,4,13,7,5,8,15,14,12,9,10,()]
+   [4,11,6,13,7,5,8,15,14,12,9,10,()]
+   [4,5,6,13,7,11,8,15,14,12,9,10,()]
+   [4,5,6,13,7,10,8,15,14,12,9,11,()]
+
+   Question 5
+
+   a. The maximium item in a tree must be at a leaf because if we assume that the minimum has a value n, then every node at the next height must have n or n+1 for it's value. That means that nodes at lower depths, have higher values. If leaves have the lowest depth, then they must also have the highest values. 
+
+   b. Because a binary heap is also a complete tree, that means that no node that is not at the last level has less than two children. As a result, if this is true then, the only possible nodes that might have one child can only produce a maximium of [N\2] leaves since they're filled from left to right. Therefore, the max can only be [N\2].
+
+   c. Because the only condition necessary for a binary heap is that the children be greater in value than the parents, there is no actual order to any node that is on the same level as another one. Therefore, in order to see where the maximium is, even though it must be on the last level, there is no indicator as to where it might fall on that level. 
+
